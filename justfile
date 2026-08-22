@@ -40,7 +40,12 @@ build-debug *args:
 build-release *args: (build-debug '--release' args)
 
 # Compiles release profile with vendored dependencies
-build-vendored *args: vendor-extract (build-release '--frozen --offline' args)
+build-vendored *args:
+    vendor-extract
+    cp Cargo.toml Cargo.toml.bak
+    sed -i '/^\[patch/,/^$/d' Cargo.toml
+    cargo build --release {{ args }} --frozen --offline
+    mv Cargo.toml.bak Cargo.toml
 
 # Runs a clippy check
 check *args:
@@ -68,11 +73,9 @@ uninstall:
 # Vendor dependencies locally
 vendor:
     cp .cargo/config.default .cargo/config.toml
-    cargo vendor --sync Cargo.toml \
-        | head -n -1 >> .cargo/config.toml
-    echo 'directory = "vendor"' >> .cargo/config.toml
+    cargo vendor --sync Cargo.toml 2>/dev/null | awk '/^\[/{p=1} p' >> .cargo/config.toml
     rm -rf vendor/winapi*gnu*/lib/*.a; \
-    tar pcf vendor.tar vendor
+    tar pcf vendor.tar vendor .cargo/config.toml
     rm -rf vendor
 
 # Extracts vendored dependencies
