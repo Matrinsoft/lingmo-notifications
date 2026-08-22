@@ -5,7 +5,7 @@ pub use image::*;
 
 pub mod markup;
 
-use lingmo::widget::{Icon, icon};
+use cosmic::widget::{Icon, icon};
 use serde::{Deserialize, Serialize};
 use std::{
     collections::HashMap, convert::Infallible, fmt, path::PathBuf, str::FromStr, time::SystemTime,

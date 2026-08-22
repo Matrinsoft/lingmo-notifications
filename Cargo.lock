@@ -928,7 +928,7 @@ dependencies = [
 [[package]]
 name = "cosmic-config"
 version = "1.0.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "atomicwrites",
  "cosmic-config-derive",
@@ -949,7 +949,7 @@ dependencies = [
 [[package]]
 name = "cosmic-config-derive"
 version = "1.0.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "quote",
  "syn",
@@ -979,7 +979,7 @@ dependencies = [
  "cosmic-notifications-util",
  "cosmic-panel-config",
  "enumflags2",
- "liblingmo",
+ "libcosmic",
  "rustix 1.1.4",
  "tokio",
  "tracing",
@@ -1001,7 +1001,7 @@ name = "cosmic-notifications-util"
 version = "0.1.0"
 dependencies = [
  "fast_image_resize",
- "liblingmo",
+ "libcosmic",
  "serde",
  "tl",
  "tracing",
@@ -1072,7 +1072,7 @@ dependencies = [
 [[package]]
 name = "cosmic-theme"
 version = "1.0.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "almost",
  "configparser",
@@ -2129,7 +2129,7 @@ dependencies = [
 [[package]]
 name = "iced"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "dnd",
  "iced_accessibility",
@@ -2150,7 +2150,7 @@ dependencies = [
 [[package]]
 name = "iced_accessibility"
 version = "0.1.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "accesskit",
  "accesskit_winit",
@@ -2159,7 +2159,7 @@ dependencies = [
 [[package]]
 name = "iced_core"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "bitflags 2.13.0",
  "bytes",
@@ -2185,7 +2185,7 @@ dependencies = [
 [[package]]
 name = "iced_debug"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "iced_core",
  "iced_futures",
@@ -2195,7 +2195,7 @@ dependencies = [
 [[package]]
 name = "iced_futures"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "futures",
  "iced_core",
@@ -2209,7 +2209,7 @@ dependencies = [
 [[package]]
 name = "iced_graphics"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "bitflags 2.13.0",
  "bytemuck",
@@ -2230,7 +2230,7 @@ dependencies = [
 [[package]]
 name = "iced_program"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "iced_graphics",
  "iced_runtime",
@@ -2239,7 +2239,7 @@ dependencies = [
 [[package]]
 name = "iced_renderer"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "iced_graphics",
  "iced_tiny_skia",
@@ -2251,7 +2251,7 @@ dependencies = [
 [[package]]
 name = "iced_runtime"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "bytes",
  "cosmic-client-toolkit",
@@ -2267,7 +2267,7 @@ dependencies = [
 [[package]]
 name = "iced_tiny_skia"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "bytemuck",
  "cosmic-text",
@@ -2284,7 +2284,7 @@ dependencies = [
 [[package]]
 name = "iced_wgpu"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "as-raw-xcb-connection",
  "bitflags 2.13.0",
@@ -2315,7 +2315,7 @@ dependencies = [
 [[package]]
 name = "iced_widget"
 version = "0.14.2"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "cosmic-client-toolkit",
  "dnd",
@@ -2334,7 +2334,7 @@ dependencies = [
 [[package]]
 name = "iced_winit"
 version = "0.14.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "cosmic-client-toolkit",
  "cursor-icon",
@@ -2779,9 +2779,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
 
 [[package]]
-name = "liblingmo"
+name = "libcosmic"
 version = "1.0.0"
-source = "git+https://github.com/Matrinsoft/liblingmo#7c7ba1ab8828cc503af6304c724808fc99d9ce36"
+source = "git+https://github.com/Matrinsoft/liblingmo#8cb10bf6e24b86a7d2a9cf8c662d3e0154db1b21"
 dependencies = [
  "apply",
  "ashpd 0.12.3",
