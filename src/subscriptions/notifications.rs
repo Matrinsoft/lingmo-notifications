@@ -1,5 +1,5 @@
 use crate::{config::VERSION, subscriptions::applet};
-use cosmic::iced::{
+use lingmo::iced::{
     Subscription,
     futures::{self, SinkExt},
     stream,

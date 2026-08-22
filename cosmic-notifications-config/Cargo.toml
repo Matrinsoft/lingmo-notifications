@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "cosmic-notifications-config"
 version = "0.1.0"
 edition = "2024"
@@ -8,5 +8,5 @@ rust-version = "1.93"
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
-cosmic-config = { git = "https://github.com/Matrinsoft/libcosmic", default-features = false, features = ["macro"] }
-# cosmic-config = { git = "https://github.com/Matrinsoft/libcosmic" }
+cosmic-config = { git = "https://github.com/Matrinsoft/liblingmo", default-features = false, features = ["macro"] }
+# cosmic-config = { git = "https://github.com/Matrinsoft/liblingmo" }

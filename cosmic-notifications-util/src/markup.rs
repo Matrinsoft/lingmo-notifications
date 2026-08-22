@@ -1,4 +1,4 @@
-use cosmic::{
+use lingmo::{
     cosmic_theme,
     iced::core::text::Span,
     iced::{

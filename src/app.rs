@@ -1,26 +1,26 @@
 use crate::subscriptions::notifications;
-use cosmic::app::{Core, Settings};
-use cosmic::core::Auto;
-use cosmic::cosmic_config::{Config, CosmicConfigEntry};
-use cosmic::iced::event::listen_raw;
-use cosmic::iced::platform_specific::runtime::wayland::layer_surface::{
+use lingmo::app::{Core, Settings};
+use lingmo::core::Auto;
+use lingmo::cosmic_config::{Config, CosmicConfigEntry};
+use lingmo::iced::event::listen_raw;
+use lingmo::iced::platform_specific::runtime::wayland::layer_surface::{
     IcedMargin, IcedOutput, SctkLayerSurfaceSettings,
 };
-use cosmic::iced::platform_specific::shell::commands::popup::destroy_popup;
-use cosmic::iced::platform_specific::shell::wayland::commands::{
+use lingmo::iced::platform_specific::shell::commands::popup::destroy_popup;
+use lingmo::iced::platform_specific::shell::wayland::commands::{
     activation,
     corner_radius::corner_radius,
     layer_surface::{Anchor, KeyboardInteractivity, destroy_layer_surface, get_layer_surface},
 };
-use cosmic::iced::runtime::platform_specific::wayland::CornerRadius;
-use cosmic::iced::runtime::platform_specific::wayland::popup::{SctkPopupSettings, SctkPositioner};
-use cosmic::iced::widget::{column, rich_text, row, space};
-use cosmic::iced::window::Id as SurfaceId;
-use cosmic::iced::{self, Length, Limits, Subscription, id};
-use cosmic::surface;
-use cosmic::surface::action::LiveSettings;
-use cosmic::widget::{autosize, button, icon, text};
-use cosmic::{Application, Element, app::Task};
+use lingmo::iced::runtime::platform_specific::wayland::CornerRadius;
+use lingmo::iced::runtime::platform_specific::wayland::popup::{SctkPopupSettings, SctkPositioner};
+use lingmo::iced::widget::{column, rich_text, row, space};
+use lingmo::iced::window::Id as SurfaceId;
+use lingmo::iced::{self, Length, Limits, Subscription, id};
+use lingmo::surface;
+use lingmo::surface::action::LiveSettings;
+use lingmo::widget::{autosize, button, icon, text};
+use lingmo::{Application, Element, app::Task};
 use cosmic_notifications_config::NotificationsConfig;
 use cosmic_notifications_util::markup::html_to_spans;
 use cosmic_notifications_util::{ActionId, CloseReason, Notification};
@@ -34,8 +34,8 @@ use tokio::sync::mpsc;
 
 static NOTIFICATIONS_APPLET: &str = "com.system76.CosmicAppletNotifications";
 
-pub fn run() -> cosmic::iced::Result {
-    cosmic::app::run::<CosmicNotifications>(
+pub fn run() -> lingmo::iced::Result {
+    lingmo::app::run::<CosmicNotifications>(
         Settings::default()
             .antialiasing(true)
             .client_decorations(true)
@@ -270,7 +270,7 @@ impl CosmicNotifications {
     fn push_notification(
         &mut self,
         notification: Notification,
-    ) -> Task<<CosmicNotifications as cosmic::app::Application>::Message> {
+    ) -> Task<<CosmicNotifications as lingmo::app::Application>::Message> {
         if self
             .popups
             .iter()
@@ -294,7 +294,7 @@ impl CosmicNotifications {
         let mut tasks = vec![if timeout > 0 {
             iced::Task::perform(
                 tokio::time::sleep(Duration::from_millis(timeout as u64)),
-                move |_| cosmic::action::app(Message::Timeout(notification.id)),
+                move |_| lingmo::action::app(Message::Timeout(notification.id)),
             )
         } else {
             iced::Task::none()
@@ -366,18 +366,18 @@ impl CosmicNotifications {
                             .as_ref()
                             .is_some_and(|a| a.0.contains(Anchor::BOTTOM))
                         {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Top
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Top
                         } else {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Bottom
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Bottom
                         },
                         gravity: if self
                             .anchor
                             .as_ref()
                             .is_some_and(|a| a.0.contains(Anchor::BOTTOM))
                         {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Top
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Top
                         } else {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Bottom
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Bottom
                         },
                         constraint_adjustment: 0, // TODO do we want to allow sliding if there is no other way?
                         offset: if self
@@ -416,18 +416,18 @@ impl CosmicNotifications {
                             .as_ref()
                             .is_some_and(|a| a.0.contains(Anchor::BOTTOM))
                         {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Top
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Top
                         } else {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Bottom
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Anchor::Bottom
                         },
                         gravity: if self
                             .anchor
                             .as_ref()
                             .is_some_and(|a| a.0.contains(Anchor::BOTTOM))
                         {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Top
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Top
                         } else {
-                            cosmic::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Bottom
+                            lingmo::cctk::sctk::reexports::protocols::xdg::shell::client::xdg_positioner::Gravity::Bottom
                         },
                         constraint_adjustment: 0, // TODO do we want to allow sliding if there is no other way?
                         offset: if self
@@ -457,8 +457,8 @@ impl CosmicNotifications {
             let auto_id = iced::id::Id::unique();
             let nth = self.popups.len();
             self.popups.push((p_id, auto_id.clone(), None));
-            tasks.push(cosmic::surface::surface_task(
-                cosmic::surface::action::app_popup(
+            tasks.push(lingmo::surface::surface_task(
+                lingmo::surface::action::app_popup(
                     |_| LiveSettings::default(),
                     move |_: &mut CosmicNotifications| settings.clone(),
                     Some(Box::new(move |app: &CosmicNotifications| {
@@ -490,7 +490,7 @@ impl CosmicNotifications {
                                         .symbolic(true),
                                 )
                                 .on_press(Message::Dismissed(n.id))
-                                .class(cosmic::theme::Button::Text);
+                                .class(lingmo::theme::Button::Text);
 
                                 let e = Element::from(
                                     column!(
@@ -521,7 +521,7 @@ impl CosmicNotifications {
                             .nth(nth)
                             .unzip();
 
-                        let card_list = cosmic::widget::cards(
+                        let card_list = lingmo::widget::cards(
                             app.notifications_id.clone(),
                             notif_elems.into_iter().collect(),
                             Message::Ignore,
@@ -542,7 +542,7 @@ impl CosmicNotifications {
                                 .max_width(300.)
                                 .max_height(1920.),
                         )
-                        .map(cosmic::Action::App)
+                        .map(lingmo::Action::App)
                     })),
                 ),
             ));
@@ -640,7 +640,7 @@ impl CosmicNotifications {
 
     fn request_activation(&mut self, i: u32, action: Option<ActionId>) -> Task<Message> {
         activation::request_token(Some(String::from(Self::APP_ID)), Some(self.window_id)).map(
-            move |token| cosmic::Action::App(Message::ActivationToken(token, i, action.clone())),
+            move |token| lingmo::Action::App(Message::ActivationToken(token, i, action.clone())),
         )
     }
 
@@ -684,7 +684,7 @@ impl CosmicNotifications {
                     .send(notifications::Input::Activated { token, id, action })
                     .await;
                 tracing::trace!("sent action to sub");
-                cosmic::Action::App(Message::Dismissed(id))
+                lingmo::Action::App(Message::Dismissed(id))
             }));
         } else {
             tracing::error!("Failed to activate notification. No channel.");
@@ -693,16 +693,16 @@ impl CosmicNotifications {
     }
 }
 
-impl cosmic::Application for CosmicNotifications {
+impl lingmo::Application for CosmicNotifications {
     type Message = Message;
-    type Executor = cosmic::executor::single::Executor;
+    type Executor = lingmo::executor::single::Executor;
     type Flags = ();
     const APP_ID: &'static str = "com.system76.CosmicNotifications";
 
     fn init(mut core: Core, _flags: ()) -> (Self, Task<Message>) {
         core.set_auto_blur(Auto::Popup | Auto::Window);
         core.set_auto_corner_radius(BitFlags::empty());
-        core.set_app_type(cosmic::core::AppType::System);
+        core.set_app_type(lingmo::core::AppType::System);
         let helper = Config::new(
             cosmic_notifications_config::ID,
             NotificationsConfig::VERSION,
@@ -818,8 +818,8 @@ impl cosmic::Application for CosmicNotifications {
             }
             Message::Ignore => {}
             Message::Surface(a) => {
-                return cosmic::task::message(cosmic::Action::Cosmic(
-                    cosmic::app::Action::Surface(a),
+                return lingmo::task::message(lingmo::Action::Cosmic(
+                    lingmo::app::Action::Surface(a),
                 ));
             }
             Message::PopupSize(id, mut size) => {
@@ -870,10 +870,10 @@ impl cosmic::Application for CosmicNotifications {
     fn subscription(&self) -> Subscription<Message> {
         Subscription::batch(vec![
             listen_raw(|e, _, id| match e {
-                cosmic::iced::Event::Window(iced::window::Event::Opened { position: _, size }) => {
+                lingmo::iced::Event::Window(iced::window::Event::Opened { position: _, size }) => {
                     Some(Message::PopupSize(id, size))
                 }
-                cosmic::iced::Event::Window(iced::window::Event::Resized(s)) => {
+                lingmo::iced::Event::Window(iced::window::Event::Resized(s)) => {
                     Some(Message::PopupSize(id, s))
                 }
                 _ => None,
@@ -884,7 +884,7 @@ impl cosmic::Application for CosmicNotifications {
                     for why in u
                         .errors
                         .into_iter()
-                        .filter(cosmic::cosmic_config::Error::is_err)
+                        .filter(lingmo::cosmic_config::Error::is_err)
                     {
                         tracing::error!(?why, "config load error");
                     }
@@ -896,7 +896,7 @@ impl cosmic::Application for CosmicNotifications {
                     for why in u
                         .errors
                         .into_iter()
-                        .filter(cosmic::cosmic_config::Error::is_err)
+                        .filter(lingmo::cosmic_config::Error::is_err)
                     {
                         tracing::error!(?why, "panel config load error");
                     }
@@ -908,7 +908,7 @@ impl cosmic::Application for CosmicNotifications {
                     for why in u
                         .errors
                         .into_iter()
-                        .filter(cosmic::cosmic_config::Error::is_err)
+                        .filter(lingmo::cosmic_config::Error::is_err)
                     {
                         tracing::error!(?why, "dock config load error");
                     }
