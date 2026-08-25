@@ -32,7 +32,7 @@ use std::collections::VecDeque;
 use std::time::Duration;
 use tokio::sync::mpsc;
 
-static NOTIFICATIONS_APPLET: &str = "com.system76.CosmicAppletNotifications";
+static NOTIFICATIONS_APPLET: &str = "com.lingmoos.LingmoAppletNotifications";
 
 pub fn run() -> cosmic::iced::Result {
     cosmic::app::run::<CosmicNotifications>(
@@ -697,7 +697,7 @@ impl cosmic::Application for CosmicNotifications {
     type Message = Message;
     type Executor = cosmic::executor::single::Executor;
     type Flags = ();
-    const APP_ID: &'static str = "com.system76.CosmicNotifications";
+    const APP_ID: &'static str = "com.lingmoos.LingmoNotifications";
 
     fn init(mut core: Core, _flags: ()) -> (Self, Task<Message>) {
         core.set_auto_blur(Auto::Popup | Auto::Window);
@@ -891,7 +891,7 @@ impl cosmic::Application for CosmicNotifications {
                     Message::Config(u.config)
                 }),
             self.core
-                .watch_config("com.system76.CosmicPanel.Panel")
+                .watch_config("com.lingmoos.LingmoPanel.Panel")
                 .map(|u| {
                     for why in u
                         .errors
@@ -903,7 +903,7 @@ impl cosmic::Application for CosmicNotifications {
                     Message::PanelConfig(u.config)
                 }),
             self.core
-                .watch_config("com.system76.CosmicPanel.Dock")
+                .watch_config("com.lingmoos.LingmoPanel.Dock")
                 .map(|u| {
                     for why in u
                         .errors
